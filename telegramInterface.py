@@ -27,8 +27,9 @@ async def main():
     await app.start()
     await app.send_message(user1, liga)
     await app.send_message(user1, strMaches)
-    #await app.send_message(user2, liga)
-    #await app.send_message(user2, strMaches)
+    
+    await app.send_message(user2, liga)
+    await app.send_message(user2, strMaches)
 
     run = futebol.main()
     try:
@@ -40,6 +41,10 @@ async def main():
             await app.send_message(user1, liga)
             await app.send_message(user1, rodada)
             await app.send_message(user1, strMaches)
+
+            await app.send_message(user2, liga)
+            await app.send_message(user2, rodada)
+            await app.send_message(user2, strMaches)
 
     except StopIteration:
         pass
