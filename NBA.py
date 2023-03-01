@@ -74,6 +74,7 @@ def calc(nav,link_table, link_fixtures):
 def main():
     chrome_options = Options()
     chrome_options.add_argument("--headless")
+    chrome_options.add_argument('--log-level=3')
     nav = Chrome(options=chrome_options)
     nav.implicitly_wait(10)
     link_fixtures = 'https://www.flashscore.com/basketball/usa/nba/fixtures/'
