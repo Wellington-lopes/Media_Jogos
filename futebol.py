@@ -96,9 +96,6 @@ def main():
     for link in links:
         yield calc(nav, link[1], link[0])
 
-
-
-
 if __name__ == '__main__':
     run = main()
     try:
