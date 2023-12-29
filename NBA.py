@@ -3,6 +3,8 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from prettyprinter import pprint as pp
 
+from tqdm import tqdm
+
 
 
 def get_jogos(nav, link_fixtures):
@@ -56,7 +58,7 @@ def calc(nav,link_table, link_fixtures):
     table = get_table(nav, link_table)
     liga, matches = get_jogos(nav, link_fixtures)
     #print(liga)
-    for match in matches:
+    for match in tqdm(matches):
         games1 = table[match[0]][0]
         goals_pro1 = table[match[0]][1]
         goals_re1 = table[match[0]][2]

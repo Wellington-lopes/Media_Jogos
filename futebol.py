@@ -3,11 +3,12 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from prettyprinter import pprint as pp
 
+import tqdm as tqdm
+
 
 
 def get_jogos(nav, link_fixtures):
     nav.get(link_fixtures)
-
     liga = nav.find_element(By.CLASS_NAME, 'event__title--type').text
     rodada = nav.find_element(By.CLASS_NAME, 'event__round').text
 
@@ -33,8 +34,7 @@ def get_jogos(nav, link_fixtures):
 
 def get_table(nav, link_table):
     nav.get(link_table)
-
-    table = liga = nav.find_element(By.CLASS_NAME, 'tableWrapper')
+    table = nav.find_element(By.CLASS_NAME, 'tableWrapper')
     times = table.find_elements(By.CLASS_NAME, 'ui-table__row  ')
     table_dict = {}
     for time in times:
@@ -58,7 +58,7 @@ def calc(nav,link_table, link_fixtures):
     liga, rodada, matches = get_jogos(nav, link_fixtures)
     #print(liga)
     #print(rodada)
-    for match in matches:
+    for match in tqdm.tqdm(matches):
         games1 = table[match[0]][0]
         goals_pro1 = table[match[0]][1]
         goals_re1 = table[match[0]][2]

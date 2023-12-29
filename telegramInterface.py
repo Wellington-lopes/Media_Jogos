@@ -2,10 +2,10 @@ from os import getenv
 from dotenv import load_dotenv
 from pyrogram import Client
 from asyncio import run
+import json
 
 import NBA
 import futebol
-import json
 
 load_dotenv()
 
@@ -19,7 +19,8 @@ app = Client(
 
 async def main():
     user1 = 'Libianno'
-    user2 = 'pitbulldaCC'
+    user2 = 'wellingtonloki'
+    #user2 = 'pitbulldaCC'
 
     liga, matches = NBA.main()
     strMaches = json.dumps(matches, indent=2)
